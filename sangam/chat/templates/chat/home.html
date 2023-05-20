@@ -1,0 +1,49 @@
+{% extends './layout.html' %}
+{% load static %}
+{% block head %}
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" type="text/css" href="../../static/reg.css" /> 
+{%endblock%}
+{%block title%} registration {%endblock%}
+
+{% block body %}
+    <div class="container">
+        <h1>Discussions Rooms</h1>
+        <div class="rooms">
+            {% for room in rooms %}
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="../../../media/{{room.cover_img}}" alt="Card image cap">
+                    <div class="card-body">
+                    <h5 class="card-title">{{room.name}}</h5>
+                    <p class="card-text"></p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    
+    <style>
+        .container{
+            max-width: 1200px;
+            margin: auto;
+            background: white;
+            padding: 2rem;
+            display: grid;
+            gap: 2rem;
+        }
+        .container>h1{
+            font-weight: bolder;
+        }
+        .rooms{
+            display: grid;
+            grid-template-columns: 30% 30% 30% ;
+            row-gap: 2rem;
+        }
+        .card-img-top{
+            height: 15rem;
+        }
+    </style>
+{% endblock %}
