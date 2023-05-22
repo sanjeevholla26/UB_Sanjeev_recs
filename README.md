@@ -78,3 +78,9 @@
 5. Editing of the discussion room by its owner.
 <br>
 
+### References used :
+<br>
+
+1. Google is the main source of reference.
+2. For frontend I have used ***Bootstrap***.
+
