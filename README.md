@@ -60,3 +60,9 @@
 
 <br>
 
+   ### Features Implemented in the project 
+   
+
+1. ***User Registration and login*** : In this web application only the authorized users can use it. So a user need to register himself to use this account. If he had an account already then he wants to login with that account.
+2. ***Using sessions*** : Sessions have been used in order to keep the user loged in to the application. So there is no need for the user to again and again login to the website each times he visit it.
+
