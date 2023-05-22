@@ -25,14 +25,14 @@
 1. Once you install django then either you have to clone this repository or you need to fork it. If you want to clone this repository then run the command following command in the terminal or command promt
    <br>
 
-         git clone https://github.com/sanjeevholla26/IRIS_Rec23_221IT059_Django.git
+         git clone https://github.com/sanjeevholla26/UB_Sanjeev_recs.git
 
    <br>
 
 2. After cloning the repository change the directory to the project directory. For that give the command 
    <br>
    
-         cd IRIS_Rec23_221IT059_Django/irisrec23
+         cd IRIS_Rec23_221IT059_Django/sangam
       
    <br>
    
