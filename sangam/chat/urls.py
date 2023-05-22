@@ -11,4 +11,5 @@ urlpatterns = [
     path("dis_room/", views.dis_room, name = "dis_room"),
     path("home/", views.home, name = "home"),
     path("addroom/", views.add_room, name="addroom"),
+    path("eachroom/<int:id>", views.eachroom, name="eachroom")
 ]

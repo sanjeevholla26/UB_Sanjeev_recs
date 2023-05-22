@@ -15,7 +15,7 @@ class discussion_room(models.Model):
     name = models.CharField(max_length= 100, blank=True, null=True)
     description = RichTextField(null=True, blank=True)
     conversation_no = models.IntegerField(default=0)
-    cover_img = models.ImageField( default="../media/users/user_avtar.webp", null=True, blank=True, upload_to='discussion_room/') 
+    cover_img = models.ImageField( default="../media/discussion_room/download.jpeg", null=True, blank=True, upload_to='discussion_room/') 
 
     def __str__(self) :
         return self.name
@@ -27,5 +27,5 @@ class conversation(models.Model) :
     text = RichTextField(blank=True, null=True)
 
     def __str__(self) :
-        return self.group.name
+        return self.post_user.username
 

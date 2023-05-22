@@ -1,11 +1,11 @@
 from django.shortcuts import render
-from .forms import Roomforms
+from .forms import Roomforms , Coversationform
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.db import IntegrityError
-from .models import discussion_room
+from .models import discussion_room, conversation
 
 
 # Create your views here.
@@ -17,7 +17,10 @@ from .models import discussion_room
 #     })
 
 def index(request) :
-    return render(request, "chat/index.html")
+    if not request.user.is_authenticated:
+        return render(request, "chat/index.html")
+    else :
+        return HttpResponseRedirect(reverse(home))
 
 def login_view(request) :
     if not request.user.is_authenticated:
@@ -89,14 +92,48 @@ def home(request) :
 def add_room(request) :
     if request.user.is_authenticated :
         if request.method == "POST" :
-            form = Roomforms(request.POST , request.FILES)
-            if form.is_valid :
-                form.save()
-                return HttpResponseRedirect(reverse(home))
+            # form = Roomforms(request.POST , request.FILES)
+            name = request.POST['name']
+            des = request.POST['description']
+            img = request.FILES.get('cover_img', '../../../media/discussion_room/download.jpeg')
+            # if form.is_valid :
+            #     name = form.cleaned_data['name']
+            #     des = form.cleaned_data['description']
+        #     img = form.cleaned_data['cover_img']
+            new_room = discussion_room(
+                owner = request.user,
+                name = name,
+                description = des,
+                cover_img = img
+            )
+            new_room.save()
+
+            return HttpResponseRedirect(reverse(home))
         else :
             get_form = Roomforms
             return render(request, "chat/room.html", {
                 "form" : get_form
             })
 
-
+def eachroom(request, id) :
+    if request.user.is_authenticated :
+        if request.method == "GET" :
+            get_room = discussion_room.objects.get(id = id) 
+            get_form = Coversationform
+            return render(request, "chat/eachroom.html", {
+                "room" : get_room,
+                "form" : get_form
+            })
+        if request.method == "POST" :
+            get_group = discussion_room.objects.get(id = id)
+            text = request.POST['text']
+            new_conversation = conversation(
+                text = text,
+                group = get_group,
+                post_user = request.user
+            )
+            new_conversation.save()
+            get_group.conversation_no = get_group.conversation_no + 1
+            get_group.save()
+            return HttpResponseRedirect(reverse(eachroom, args=(id, )))
+        

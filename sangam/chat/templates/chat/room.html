@@ -9,6 +9,11 @@
 {%block title%} registration {%endblock%}
 
 {% block body %}
+<div class="header">
+   <a href="../home">Home</a>
+   <a href="../addroom">Add discussion room</a>
+   <a href="../logout" style="margin-right: 4rem; margin-left: auto;">Logout</a>
+</div>
       <div class="addroom">
          <form action="{% url 'addroom'%}" method="post" enctype="multipart/form-data">
             {% csrf_token %}
@@ -16,7 +21,7 @@
             <div class="form-group">
             {{form.as_p}}
             </div>
-         
+            {{form.cleaned_data}}
             <button type="submit" class="btn btn-primary">Submit</button>
          </form>
       </div>
@@ -31,5 +36,20 @@
    .form-group{
       display: grid;
    }
+   .header{
+            height: 7rem;
+            display: flex;
+            align-items: center;
+            padding: 2rem;
+            background: linear-gradient(#e66465, #9198e5);
+            margin-bottom: 1rem;
+        }
+        .header>a{
+            text-decoration: none;
+            color: white;
+            font-size: 2rem;
+            font-weight: bolder;
+            margin-left: 5%;
+        }
 </style>
 {% endblock %}

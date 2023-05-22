@@ -9,6 +9,11 @@
 {%block title%} registration {%endblock%}
 
 {% block body %}
+<div class="header">
+    <a href="../home">Home</a>
+    <a href="../addroom">Add discussion room</a>
+    <a href="../logout" style="margin-right: 4rem; margin-left: auto;">Logout</a>
+</div>
     <div class="container">
         <h1>Discussions Rooms</h1>
         <div class="rooms">
@@ -17,8 +22,9 @@
                     <img class="card-img-top" src="../../../media/{{room.cover_img}}" alt="Card image cap">
                     <div class="card-body">
                     <h5 class="card-title">{{room.name}}</h5>
-                    <p class="card-text"></p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <p class="card-text"><strong>Author : </strong>{{room.owner}}</p>
+                    <p> <strong>Discussions : {{room.conversation_no}}</strong></p>
+                    <a href="../eachroom/{{room.id}}" class="btn btn-primary">View</a>
                     </div>
                 </div>
             {% endfor %}
@@ -44,6 +50,21 @@
         }
         .card-img-top{
             height: 15rem;
+        }
+        .header{
+            height: 7rem;
+            display: flex;
+            align-items: center;
+            padding: 2rem;
+            background: linear-gradient(#e66465, #9198e5);
+            margin-bottom: 1rem;
+        }
+        .header>a{
+            text-decoration: none;
+            color: white;
+            font-size: 2rem;
+            font-weight: bolder;
+            margin-left: 5%;
         }
     </style>
 {% endblock %}
