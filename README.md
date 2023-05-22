@@ -80,6 +80,7 @@ https://drive.google.com/drive/folders/1joObjl0EglddnW8IwlZSwfoG0lSvK3y1?usp=sha
 3. Search functionality.
 4. Creating profile.
 5. Editing of the discussion room by its owner.
+6. Want to add replies for each of the ideas posted by a user in a perticular discussion room.
 <br>
 
 ### References used :
