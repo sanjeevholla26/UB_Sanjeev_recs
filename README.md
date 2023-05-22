@@ -4,6 +4,10 @@
 #### This is a project done for the recruitment of Uthkrusht Web team. I have choosen the 1st task i.e Career Development Module. Here is the detailed report of this project.
 <br>
 
+### Video Recording of the project.
+https://drive.google.com/drive/folders/1joObjl0EglddnW8IwlZSwfoG0lSvK3y1?usp=share_link
+<br>
+
 ### Installation instructions to set up the project from scratch :
 
 1. To run this project you need to install ***Django*** as this project is made by django framework.
